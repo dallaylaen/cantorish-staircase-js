@@ -34,6 +34,14 @@ describe( 'Ladder', () => {
         };
         console.log(lad.graph(100,100));
 
+        refute( r => {
+            r.ordered( 'graph is an ascending list of numbers', graph, (r, a, b) => {
+                r.cmpNum(0, '<=', a);
+                r.cmpNum(a, '<=', b);
+                r.cmpNum(b, '<=', 100);
+            });
+        });
+
         done();
     });
 });

@@ -1,18 +1,27 @@
 {
-  "name": "kantorish-ladder",
+  "name": "cantorish-staircase",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha"
   },
-  "author": "",
+  "author": "Konstantin Uvarin",
   "license": "MIT",
   "dependencies": {
-    "refutable": "^1.0.2"
   },
   "devDependencies": {
     "browserify": "^17.0.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-align-assignments": "^1.1.2",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "mocha": "^9.1.3",
+    "nyc": "^15.1.0",
+    "refutable": "^1.0.2",
     "tinyify": "^4.0.0"
   }
 }

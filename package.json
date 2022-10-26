@@ -10,5 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "refutable": "^1.0.2"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "tinyify": "^4.0.0"
   }
 }

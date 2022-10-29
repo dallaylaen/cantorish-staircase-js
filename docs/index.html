@@ -27,8 +27,11 @@
             ctx.stroke();
         };
 
-        const ladder = new Staircase();
-        ladder.add([[1,1], [1,0], [1,1], [3,0], [1,1], [1,0], [1,1] ])
+        let ladder = new Staircase();
+        ladder.add([[1,1], [1,0], [1,1]]);
+        ladder = ladder.compose(ladder);
+        ladder = ladder.compose(ladder);
+        ladder = ladder.compose(ladder);
 
         draw(ladder, document.getElementById('draw'));
         

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="i/main.css">
 </head>
 <body>
-    <canvas id="draw" class="debug" width="800" height="400"></canvas>
+    <canvas id="draw" class="debug" width="100" height="100"></canvas>
     <script>
         'use strict';
 
@@ -31,14 +31,8 @@
         };
 
         const param = new URL(window.location).searchParams;
-
-        console.log(param);
-
         const pattern = param.get('pattern') ?? '1,0,1';
-
         const list = pattern.split(',').map(parsePair);
-
-        console.log(list);
 
         let ladder = new Staircase();
         ladder.add(list);
@@ -46,7 +40,15 @@
         ladder = ladder.compose(ladder);
         ladder = ladder.compose(ladder);
 
-        draw(ladder, document.getElementById('draw'));
+        function redraw(ev) {
+            const canvas  = document.getElementById('draw');
+            canvas.width  = window.innerWidth;
+            canvas.height = window.innerHeight;
+            draw(ladder, canvas);
+        };
+
+        window.addEventListener('resize', redraw);
+        redraw();
         
         function parsePair(str) {
             const [_, first, second] = str.match(rePair);

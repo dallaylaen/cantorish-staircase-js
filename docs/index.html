@@ -24,14 +24,18 @@
             const ctx   = canvas.getContext('2d');
             const w     = canvas.width;
             const h     = canvas.height;
-            const graph = ladder.graph(w, h);
+            const graph = ladder.scale(w, h, {flip:true, round:true} );
 
             ctx.beginPath();
             ctx.strokeStyle = "#555555";
-            ctx.moveTo(0, h);
+            console.log( 'width:', ctx.lineWidth );
+            ctx.lineWidth = 0.5;
+            console.log( 'width:', ctx.lineWidth );
 
-            for (let i = 0; i < w; i++)
-                ctx.lineTo( i, h - graph[i] );
+            for (let i of graph) {
+                ctx.moveTo(i[0], i[1]);
+                ctx.lineTo(i[2], i[3]);
+            };
 
             ctx.stroke();
         };

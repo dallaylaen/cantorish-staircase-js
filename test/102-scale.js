@@ -9,7 +9,7 @@ describe( 'Staircase.scale', () => {
         const lad = new Staircase();
         lad.add([[1,1], [1,0], [2,1]]);
         
-        expect( lad.scale( 100, 50 ) ).to.deep.equal([
+        expect( lad.scale( 100, 50, { flip:true } ) ).to.deep.equal([
             [0,  50, 25, 25],
             [25, 25, 50, 25],
             [50, 25, 100, 0]

@@ -20,19 +20,25 @@
         const reNum  = '(?:[-+]?\\d+(?:\\.\\d+)?)';
         const rePair = new RegExp(`^(?:(${reNum}):)?(${reNum})$`);
 
-        function draw(ladder, canvas) {
+        function draw(seed, canvas) {
             const ctx   = canvas.getContext('2d');
             const w     = canvas.width;
             const h     = canvas.height;
-            const graph = ladder.graph(w, h);
 
+            let power = new Staircase().add([[1,1]]);
+
+            const n = 8;
+            for (let i = 0; i < n; i++) {
+                // TODO draw iterations via globalAlpha but later
+                power = power.compose(seed);
+            };
+
+            const graph = power.graph(w, h);
             ctx.beginPath();
-            ctx.strokeStyle = "#555555";
+            ctx.strokeStyle = "#000000";
             ctx.moveTo(0, h);
-
             for (let i = 0; i < w; i++)
                 ctx.lineTo( i, h - graph[i] );
-
             ctx.stroke();
         };
 
@@ -41,11 +47,7 @@
         document.getElementById('pattern').value = pattern;
         const list = pattern.split(',').map(parsePair);
 
-        let ladder = new Staircase();
-        ladder.add(list);
-        ladder = ladder.compose(ladder);
-        ladder = ladder.compose(ladder);
-        ladder = ladder.compose(ladder);
+        let ladder = new Staircase().add(list);
 
         function redraw(ev) {
             const footer  = document.getElementById('footer');

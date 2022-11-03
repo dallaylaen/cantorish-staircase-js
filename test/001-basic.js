@@ -15,6 +15,7 @@ describe( 'Staircase', () => {
 
         expect( lad.width() ).to.equal(9);
         expect( lad.height() ).to.equal(4);
+        expect( lad.growthFactor() ).to.equal(4);
 
         done();
     });

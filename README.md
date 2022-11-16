@@ -10,12 +10,12 @@ Here are some examples:
 
 ## Normal Cantor's staircase
 
-![1,0,1.png](/screenshots/1,0,1.png)
+![1,0,1.png](/screenshot/1,0,1.png)
 [Try 1,0,1](https://dallaylaen.github.io/cantorish-staircase-js/?pattern=1%2C0%2C1)
 
 ## Vertical Cantor's staircase
 
-![1,0:1,1.png](screenshots/1,0:1,1.png)
+![1,0:1,1.png](screenshot/1,0:1,1.png)
 [Try 1,0:1,1](https://dallaylaen.github.io/cantorish-staircase-js/?pattern=1%2C0%3A1%2C1)
 
 ## Negative segment in the middle
